@@ -266,7 +266,7 @@ _Parameters_
 
 -   _props_ `Object`: The component props.
 -   _props.title_ `string`: A title for the document, defaulting to the document or template title currently being edited.
--   _props.icon_ `import("@wordpress/components").IconType`: An icon for the document, defaulting to an icon for document or template currently being edited.
+-   _props.icon_ `IconType`: An icon for the document, no default. (A default icon indicating the document post type is no longer used.)
 
 _Returns_
 
@@ -878,9 +878,9 @@ function onPreviewClick() {
 }
 
 const ExternalPreviewMenuItem = () => (
-	<PreviewDropdownMenuItem icon={ external } onClick={ onPreviewClick }>
+	<PluginPreviewMenuItem icon={ external } onClick={ onPreviewClick }>
 		{ __( 'Preview in new tab' ) }
-	</PreviewDropdownMenuItem>
+	</PluginPreviewMenuItem>
 );
 registerPlugin( 'external-preview-menu-item', {
 	render: ExternalPreviewMenuItem,
@@ -1471,6 +1471,10 @@ Undocumented declaration.
 
 Displays the Post Trash Button and Confirm Dialog in the Editor.
 
+_Parameters_
+
+-   _An_ `?{onActionPerformed: Object}`: object containing the onActionPerformed function.
+
 _Returns_
 
 -   `JSX.Element|null`: The rendered PostTrash component.
@@ -1627,10 +1631,6 @@ _Related_
 
 -   <https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore>
 
-_Type_
-
--   `Object`
-
 ### storeConfig
 
 Post editor data store configuration.
@@ -1638,10 +1638,6 @@ Post editor data store configuration.
 _Related_
 
 -   <https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#registerStore>
-
-_Type_
-
--   `Object`
 
 ### TableOfContents
 

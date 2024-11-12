@@ -41,8 +41,6 @@
 .editor-post-featured-image__preview {
 	width: 100%;
 	padding: 0;
-	transition: all 0.1s ease-out;
-	@include reduce-motion("transition");
 	box-shadow: 0 0 0 0 var(--wp-admin-theme-color);
 	overflow: hidden; // Ensure the focus style properly encapsulates the image.
 	outline-offset: -#{$border-width};
@@ -53,7 +51,7 @@
 }
 
 .editor-post-featured-image__preview {
-	height: auto;
+	height: auto !important;
 	outline: $border-width solid rgba($black, 0.1);
 
 	.editor-post-featured-image__preview-image {
@@ -65,11 +63,12 @@
 }
 
 .editor-post-featured-image__toggle {
-	height: 100%;
-	line-height: 20px;
-	padding: $grid-unit-10 0;
-	text-align: center;
 	box-shadow: inset 0 0 0 $border-width $gray-400;
+
+	&:focus:not(:disabled) {
+		// Allow smooth transition between focused and unfocused box-shadow states.
+		box-shadow: 0 0 0 currentColor inset, 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
+	}
 }
 
 .editor-post-featured-image__actions {
