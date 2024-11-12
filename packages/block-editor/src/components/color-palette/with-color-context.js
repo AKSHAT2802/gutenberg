@@ -23,7 +23,6 @@ export default createHigherOrderComponent( ( WrappedComponent ) => {
 
 		const hasColorsToChoose =
 			( colors && colors.length > 0 ) || ! disableCustomColors;
-
 		return (
 			<WrappedComponent
 				{ ...{
