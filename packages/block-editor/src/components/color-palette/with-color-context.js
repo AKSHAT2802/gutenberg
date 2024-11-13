@@ -17,7 +17,7 @@ export default createHigherOrderComponent( ( WrappedComponent ) => {
 			'color.custom'
 		);
 
-		const colors = [ ...( themeColors || [] ), ...( customColors || [] ) ];
+		const colors = [ ...themeColors, ...defaultColors, ...customColors ];
 
 		const { disableCustomColors = ! enableCustomColors } = props;
 
