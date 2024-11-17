@@ -25,11 +25,16 @@ export default createHigherOrderComponent( ( WrappedComponent ) => {
 			'color.defaultPalette'
 		);
 
-		const colors = enableDefaultColors
-			? themeColors.concat( defaultColors, customColors )
-			: themeColors.concat( customColors );
+		const _colors = enableDefaultColors
+			? [
+					...( themeColors || [] ),
+					...( defaultColors || [] ),
+					...( customColors || [] ),
+			  ]
+			: [ ...( themeColors || [] ), ...( customColors || [] ) ];
 
-		const { disableCustomColors = ! enableCustomColors } = props;
+		const { colors = _colors, disableCustomColors = ! enableCustomColors } =
+			props;
 
 		const hasColorsToChoose =
 			( colors && colors.length > 0 ) || ! disableCustomColors;
