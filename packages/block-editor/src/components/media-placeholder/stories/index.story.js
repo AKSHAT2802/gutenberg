@@ -21,9 +21,7 @@ const meta = {
 	argTypes: {
 		allowedTypes: {
 			control: { type: 'array' },
-			description: __(
-				'Array of allowed media types for selection (e.g., "image", "audio").'
-			),
+			description: __( 'Array of allowed media types for replacing.' ),
 			table: {
 				type: { summary: 'array' },
 				defaultValue: { summary: '["image"]' },
